@@ -640,3 +640,18 @@ img {
         textarea:focus {
             border-color: green; 
         }
+  @media only screen and (max-width:800px) {
+            .bgimage {
+              width: 80%;
+              padding: 0;
+            }
+            .right {
+              width: 100%;
+            }
+          }
+          @media only screen and (max-width:500px) {
+            /* For mobile phones: */
+            .menu, .bgimage, .right {
+              width: 100%;
+            }
+        }
