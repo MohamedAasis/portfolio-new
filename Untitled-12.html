@@ -41,10 +41,15 @@
         <div class="profile">
             <img src="images123.png.png" alt="Student logo">
             <h2 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"class="qwerty">Mohamed Sharafth Aasis</h2>
-            <p class="description">
+            <p id="description" class="description">
                 I'm a Web Developer who loves to create beautiful and functional websites.
             </p>
-            <a href="https://download944.mediafire.com/syom76y99xmgHmSRVEgZ5jDWm4yaYLjYb8hGvwIlJMeIuZa9F2RtitSer69HywFzALn6OBUf4oa6QTaQVg3ZaU3YJ7yTtQBA5bbMesLrJkohBu-LF5AZatgZHFAaQfo1-jOdaUDiV6CdACvUMu6n0EOTx_d4fnBiJhDuySEeUjKstoLz/819ruxc3fodcrv0/Resume+%281%29.pdf" class="btn">Download CV</a>
+            <button onclick="changeLanguage('en')">English</button>
+            <button onclick="changeLanguage('fr')">French</button>
+            <button onclick="changeLanguage('es')">Spanish</button>
+            <button onclick="changeLanguage('ta')">Tamil</button><br><br><br>
+            <a href="https://download944.mediafire.com/syom76y99xmgHmSRVEgZ5jDWm4yaYLjYb8hGvwIlJMeIuZa9F2RtitSer69HywFzALn6OBUf4oa6QTaQVg3ZaU3YJ7yTtQBA5bbMesLrJkohBu-LF5AZatgZHFAaQfo1-jOdaUDiV6CdACvUMu6n0EOTx_d4fnBiJhDuySEeUjKstoLz/819ruxc3fodcrv0/Resume+%281%29.pdf" class="btn">Download CV</a><br><br><br>
+            <button id="changeButton">Change Background</button><br>
         </div>
         <center id="prog">
             <br>
@@ -203,21 +208,23 @@
                     <td>8.6</td>
                 </tr>
             </table>
+            <center>
 
             <h1>Experience</h1>
-            <p class="experience-description" style="color: aliceblue;">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Omnis harum odit minima velit cum corrupti, iusto debitis nisi ab consectetur? Ipsam, itaque aspernatur.
-                Consequuntur omnis quibusdam temporibus id doloremque molestiae.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus adipisci debitis, 
-                optio aut molestiae vitae hic quibusdam suscipit qui sit. Autem quidem nobis aperiam quaerat perspiciatis distinctio, 
-                dignissimos Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur molestias accusamus id eligendi libero eaque, 
-                magnam alias odit? Fuga modi minus accusamus dolores dolor perspiciatis distinctio cum itaque deleniti exercitationem? 
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis beatae saepe ad veritatis atque expedita illo repellat quas, 
-                enim quibusdam. Veritatis deleniti eius velit commodi omnis saepe eaque dicta Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Ipsa blanditiis explicabo, beatae obcaecati voluptatibus velit? Dolore tenetur, explicabo ad nemo, cum quae nihil corporis placeat perspiciatis dolorem,
-                 qui consequatur sapiente!   </p>
-                 <center>
+            <div onmouseover="mOver(this)" onmouseout="mOut(this)" style="height:374px;width:272px;color: aliceblue;">
+                Mouse here
+              </div>
+            
+              <script>
+                function mOver(obj) {
+                  obj.innerHTML = "The very first programming class introduced us to the basics of coding. We started with simple programs in languages like Python and Java, learning about variables, loops, and conditional statements. It was fascinating to see how a few lines of code could create powerful functionalities.Experiencing the foundational programming concepts, mathematical challenges, collaborative projects, and personal growth while navigating the dynamic landscape of Computer Science and Engineering as a first-year student was both exhilarating and transformative.";
+                }
+            
+                function mOut(obj) {
+                  obj.innerHTML = "Mouse here";
+                }
+              </script>
+                
                  <video width="320" height="240" controls>
                     <source src="aasis.mp4" type="video/mp4">
                     Your browser does not support the video tag.
@@ -253,15 +260,70 @@
     <label for="subject" style="color: cyan;">Subject</label>
     <textarea id="subject" name="subject" placeholder="Write something.." style="color: aliceblue; height: 200px;"></textarea>
     <CENTER>
-    <button class="btn"><input type="submit" value="Submit"></button>
+    <button class="btn" onclick="return validateForm()">Submit</button>
     </CENTER>
   </form>
 </div>
-    
+<script>
+    function validateForm() {
+        const firstName = document.getElementById('fname').value.trim();
+        const lastName = document.getElementById('lname').value.trim();
+        const country = document.getElementById('country').value.trim();
+        const subject = document.getElementById('subject').value.trim();
+
+        if (firstName === '') {
+            alert('Please enter your first name.');
+            return false;
+        }
+
+        if (lastName === '') {
+            alert('Please enter your last name.');
+            return false;
+        }
+
+        if (country === '') {
+            alert('Please select your country.');
+            return false;
+        }
+
+        if (subject === '') {
+            alert('Please enter a subject.');
+            return false;
+        }
+        alert('Thank You'); 
+        return true;
+        a// Form is valid
+    }
+</script>
+<script>
+    const changeButton = document.getElementById('changeButton');
+    const body = document.body;
+
+    changeButton.addEventListener('click', () => {
+      body.style.backgroundImage = 'none'; // Remove background image
+      body.style.background = 'linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%)'; // Set background to linear gradient// Set background color to black
+    });
+  </script>
+  <script>
+    function changeLanguage(lang) {
+        const descriptions = {
+            'en': `I'm a Web Developer who loves to create beautiful and functional websites.`,
+            'fr': `Je suis un développeur web qui aime créer des sites web beaux et fonctionnels.`,
+            'es': `Soy un desarrollador web que ama crear sitios web hermosos y funcionales.`,
+            'ta': `நான் அழகான மற்றும் செயல்பாட்டு இணையதளங்களை உருவாக்க விரும்பும் ஒரு வலை டெவலப்பர்.`
+        };
+
+        const descriptionElement = document.getElementById('description');
+        descriptionElement.textContent = descriptions[lang];
+    }
+    </script>
+</script>
+    <script src="script.js"></script>
     
 
     <footer>
         <p>@Aasis 2024-2025</p>
     </footer>
+      
 </body>
 </html>
